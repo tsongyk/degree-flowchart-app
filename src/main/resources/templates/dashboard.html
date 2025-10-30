@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Degree Progress Tracker</title>
+    <link rel="stylesheet" href="/css/dashboard.css" th:href="@{/css/dashboard.css}">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="student-info">
+            <h1 id="studentName">Loading...</h1>
+            <div class="info-row">
+                <span><strong>Major:</strong> <span id="studentMajor"></span></span>
+                <span><strong>Expected Graduation:</strong> <span id="gradDate"></span></span>
+                <span><strong>Current GPA:</strong> <span id="gpa"></span></span>
+            </div>
+        </div>
+        <div class="degree-progress">
+            <label>Overall Degree Progress</label>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="overallProgress">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <span class="progress-text" id="overallProgressText">0 / 120 credits</span>
+            </div>
+        </div>
+        <div class="header-actions">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Requirements Sidebar -->
+        <aside class="requirements-panel" id="requirementsPanel">
+            <div class="requirements-header">
+                <h2>Degree Requirements</h2>
+                <!-- <button class="collapse-btn" id="collapseBtn" onclick="toggleRequirementsPanel()">
+                    <span class="collapse-icon">◀</span>
+                </button> -->
+            </div>
+            
+            <div class="requirements-content" id="requirementsContent">
+                <div class="requirement-block">
+                    <h3>CS Core Credits</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill cscore" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="csCoreComplete">0</span> / 16 credits</p>
+                </div>
+
+                <div class="requirement-block">
+                    <h3>CS Elective Credits</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill cse" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="csElectiveComplete">0</span> / 45 credits</p>
+                </div>
+
+                <div class="requirement-block">
+                    <h3>Math Credits</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill math" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="mathComplete">0</span> / 12 credits</p>
+                </div>
+
+                <div class="requirement-block">
+                    <h3>General Education</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill gened" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="genEdComplete">0</span> / 30 credits</p>
+                </div>
+
+                <div class="requirement-block">
+                    <h3>Free Electives</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill elective" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="electiveComplete">0</span> / 17 credits</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Flowchart -->
+        <div class="flowchart-container">
+            <svg id="arrowCanvas" class="arrow-canvas"></svg>
+            <div id="flowchart" class="flowchart">
+                <!-- Years will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Selection Sidebar -->
+    <div id="courseSidebar" class="course-sidebar">
+        <div class="sidebar-header">
+            <h2>Add Course</h2>
+            <button class="close-btn" onclick="closeSidebar()">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <div class="semester-info">
+                <p><strong>Semester:</strong> <span id="selectedSemester"></span></p>
+                <p><strong>Current Credits:</strong> <span id="currentCredits">0</span> / 19</p>
+            </div>
+            <div class="course-search">
+                <input type="text" id="courseSearch" placeholder="Search courses...">
+            </div>
+            <div id="courseList" class="course-list">
+                <!-- Courses will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <script src="/js/flowchart.js" th:src="@{/js/flowchart.js}"></script>
+</body>
+</html>
