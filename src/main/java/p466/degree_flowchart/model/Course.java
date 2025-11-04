@@ -22,7 +22,7 @@ public class Course {
   public Course(String code, String name, Category category, int credits) {
     this.code = code; 
     this.name = name;
-    this.category = category; // Categories: Computer Science Core (CSCore), Math, English, GenEd, Elective, Career, Specialization Course (SC), Luddy Natural Science (LNS), CS Elective (CSE)
+    this.category = category; // Categories: Computer Science Core (CSCore), Math, Writing, GenEd, Elective, Career, Specialization Course (SC), Luddy Natural Science (LNS), CS Elective (CSE)
     this.credits = credits;
 
   }
@@ -32,10 +32,9 @@ public class Course {
   }
 
   public enum Category {
-    CSCORE, ELECTIVE, MATH, LNS, GENED, CAREER, SC, CSE, ENGLISH
+    CSCORE, DSCORE, ELECTIVE, MATH, LNS, GENED, CAREER, SC, CSE, DSE, WRITING
   }
 
- // ---- Getters and Setters ----
   public String getCode() { return code; }
   public void setCode(String code) { this.code = code; }
 

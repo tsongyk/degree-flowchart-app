@@ -15,8 +15,7 @@ public class StudentController {
 
     @Autowired
     private StudentRepository studentRepo;
-
-    /** ✅ Return currently logged-in student from session */
+    
     @GetMapping("/current")
     public Optional<Student> getCurrentStudent(HttpSession session) {
         Student student = (Student) session.getAttribute("student");

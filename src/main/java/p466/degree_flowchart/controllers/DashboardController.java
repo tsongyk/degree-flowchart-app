@@ -59,7 +59,6 @@ public class DashboardController {
         int totalCredits = allCourses.stream().mapToInt(Course::getCredits).sum();
         int completedCredits = 0;
 
-        // ✅ Parse completedCoursesJson if available
         if (progress != null && progress.getCompletedCoursesJson() != null) {
             try {
                 List<String> completedCourseCodes = mapper.readValue(

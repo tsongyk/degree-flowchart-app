@@ -13,7 +13,6 @@ public class ProgressController {
     @Autowired
     private DegreeProgressRepository progressRepo;
 
-    // ✅ Save progress from frontend
     @PostMapping("/update")
     public String updateProgress(@RequestBody Map<String, Object> payload) {
         try {
@@ -40,7 +39,6 @@ public class ProgressController {
         }
     }
 
-    // ✅ Load progress for the current student
     @GetMapping("/{studentId}")
     public DegreeProgress getProgress(@PathVariable String studentId) {
         return progressRepo.findByStudentId(studentId);

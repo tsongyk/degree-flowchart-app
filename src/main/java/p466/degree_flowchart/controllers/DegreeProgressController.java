@@ -19,7 +19,6 @@ public class DegreeProgressController {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-    /** ✅ Save full schedule + completed courses JSON */
     @PostMapping("/save")
     public Map<String, Object> saveProgress(@RequestBody Map<String, Object> body, HttpSession session) {
         Map<String, Object> response = new HashMap<>();
@@ -58,7 +57,6 @@ public class DegreeProgressController {
         return response;
     }
 
-    /** ✅ Toggle completed course */
     @PostMapping("/toggleComplete")
     public Map<String, Object> toggleComplete(@RequestBody Map<String, String> body, HttpSession session) {
         Map<String, Object> response = new HashMap<>();
@@ -108,7 +106,6 @@ public class DegreeProgressController {
         return response;
     }
 
-    /** ✅ Load saved progress */
     @GetMapping("/load")
     public Map<String, Object> loadProgress(HttpSession session) {
         Map<String, Object> response = new HashMap<>();

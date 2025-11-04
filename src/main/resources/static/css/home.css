@@ -1,0 +1,83 @@
+/* ==============================
+   Global Page Styling
+============================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+/* ==============================
+   Header Styling
+============================== */
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   Logo Styling
+============================== */
+img {
+  width: 160px;
+  height: auto;
+  margin-bottom: 40px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Button Styling
+============================== */
+form {
+  margin-top: 10px;
+}
+
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* ==============================
+   Responsive Adjustments
+============================== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  img {
+    width: 120px;
+  }
+
+  button {
+    padding: 10px 24px;
+    font-size: 1em;
+  }
+}

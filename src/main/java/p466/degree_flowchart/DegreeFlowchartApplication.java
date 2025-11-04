@@ -32,6 +32,7 @@ public class DegreeFlowchartApplication {
 					"Doe",
 					"jdoe@iu.edu",
 					"Computer Science",
+					"Software Engineering",
 					"May 2026"
 				));
 
@@ -41,28 +42,9 @@ public class DegreeFlowchartApplication {
 					"Jane",
 					"Smith",
 					"jsmith@iu.edu",
-					"Intelligent Systems Engineering",
-					"December 2026"
-				));
-
-				studentRepo.save(new Student(
-					"1003",
-					"password789",
-					"Michael",
-					"Johnson",
-					"mjohnson@iu.edu",
 					"Data Science",
-					"May 2026"
-				));
-
-				studentRepo.save(new Student(
-					"1005",
-					"student123",
-					"David",
-					"Wilson",
-					"dwilson@iu.edu",
-					"Informatics",
-					"May 2026"
+					"Foundational Data Science",
+					"December 2026"
 				));
 
 				Course c200 = new Course(
@@ -92,7 +74,7 @@ public class DegreeFlowchartApplication {
 				Course eng170 = new Course(
 					"ENG-W 170", 
 					"Projects in Reading & Writing (Introduction to Argumentative Writing)", 
-					Category.ENGLISH, 
+					Category.ELECTIVE, 
 					3
 				);
 				courseRepo.save(eng170);
@@ -211,7 +193,7 @@ public class DegreeFlowchartApplication {
 					"MATH-M 303", 
 					"Linear Algebra for Undergraduates", 
 					Category.MATH, 
-					3
+					4
 				);
 				m303.setPrerequisites(List.of(m212));
 				courseRepo.save(m303);
@@ -235,9 +217,10 @@ public class DegreeFlowchartApplication {
 				Course engL220 = new Course(
 					"ENG-L 220", 
 					"Intro to Prose", 
-					Category.GENED, 
+					Category.WRITING, 
 					3
 				);
+				engL220.setPrerequisites(List.of(eng170));
 				courseRepo.save(engL220);
 
 				Course aaaD238 = new Course(
@@ -551,6 +534,109 @@ public class DegreeFlowchartApplication {
 				);
 				courseRepo.save(mschA250);
 
+
+				// Data Science courses:
+
+				Course ilsZ410 = new Course(
+					"ILS-Z 410", 
+					"Social and Ethical Impacts of Big Data", 
+					Category.ELECTIVE,
+					3
+				);
+				courseRepo.save(ilsZ410);
+
+				Course mathE201 = new Course(
+					"MATH-E 201", 
+					"Linear Algebra for Data Science", 
+					Category.MATH,
+					3
+				);
+				courseRepo.save(mathE201);
+
+				Course mathE265 = new Course(
+					"MATH-E 265", 
+					"Probability for Data Science", 
+					Category.MATH,
+					3
+				);
+				courseRepo.save(mathE265);
+
+				Course csciA310 = new Course(
+					"CSCI-A 310", 
+					"Probability for Data Science", 
+					Category.DSCORE,
+					3
+				);
+				courseRepo.save(csciA310);
+
+				Course dsciD321 = new Course(
+					"DSCI-D 321", 
+					"Data Representation and Processing", 
+					Category.DSCORE,
+					3
+				);
+				courseRepo.save(dsciD321);
+
+				Course dsciD351 = new Course(
+					"DSCI-D 351", 
+					"Big Data Analytics", 
+					Category.DSCORE,
+					3
+				);
+				courseRepo.save(dsciD351);
+
+				Course infoI123 = new Course(
+					"INFO-I 123", 
+					"Data Fluency", 
+					Category.DSCORE,
+					3
+				);
+				courseRepo.save(infoI123);
+
+				Course statS350 = new Course(
+					"STAT-S 350", 
+					"Intro to Statistical Inference", 
+					Category.DSCORE,
+					3
+				);
+				statS350.setPrerequisites(List.of(infoI123));
+				courseRepo.save(statS350);
+
+				Course statS352 = new Course(
+					"STAT-S 352", 
+					"Data Modeling and Inference", 
+					Category.DSCORE,
+					3
+				);
+				statS352.setPrerequisites(List.of(statS350));
+				courseRepo.save(statS352);
+
+				Course dsciD498 = new Course(
+					"DSCI-D 498", 
+					"Data Science Capstone I", 
+					Category.DSCORE,
+					3
+				);
+				dsciD498.setPrerequisites(List.of(dsciD351, statS352));
+				courseRepo.save(dsciD498);
+
+				Course dsciD499 = new Course(
+					"DSCI-D 499", 
+					"Data Science Capstone II", 
+					Category.DSCORE,
+					3
+				);
+				dsciD499.setPrerequisites(List.of(dsciD498));
+				courseRepo.save(dsciD499);
+
+				Course csciB455 = new Course(
+					"CSCI-B 455", 
+					"Principles of Machine Learning", 
+					Category.DSE,
+					3
+				);
+				csciB455.setPrerequisites(List.of(csciB351, infoI123));
+				courseRepo.save(csciB455);
 
 
 			}

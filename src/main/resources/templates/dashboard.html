@@ -15,7 +15,7 @@
             <div class="info-row">
                 <span><strong>Major:</strong> <span id="studentMajor"></span></span>
                 <span><strong>Expected Graduation:</strong> <span id="gradDate"></span></span>
-                <span><strong>Current GPA:</strong> <span id="gpa"></span></span>
+                <button onclick="logout()">Logout</button>
             </div>
         </div>
         <div class="degree-progress">
@@ -28,7 +28,6 @@
             </div>
         </div>
         <div class="header-actions">
-        <button onclick="logout()">Logout</button>
       </div>
     </header>
 
@@ -92,6 +91,16 @@
                         </div>
                     </div>
                     <p class="requirement-text"><span id="electiveComplete">0</span> / 17 credits</p>
+                </div>
+
+                <div class="requirement-block">
+                    <h3>Intensive Writing</h3>
+                    <div class="progress-bar-container small">
+                        <div class="progress-bar">
+                            <div class="progress-fill writing" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <p class="requirement-text"><span id="writingComplete">0</span> / 3 credits</p>
                 </div>
             </div>
         </aside>
